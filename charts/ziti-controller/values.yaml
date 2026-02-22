@@ -393,6 +393,11 @@ ctrlPlaneCasBundle:
   # solo nodes, leave empty to use the default name based on this release. If subsequent nodes are added without this
   # value, a harmless, redundant Bundle and ConfigMap resource will be created.
   configMapName: ""
+  # -- Wheter to let trustManager include a bundle of publicly trusted certificates to be trusted by the openziti
+  # control plane process when loading certs. Cert-manager, which is e.g. used for Let's Encrypt certificates, does
+  # not want to include the root CAs into the crt files, so trustManager needs to include them.
+  # https://cert-manager.io/docs/faq/#why-isnt-my-certificates-chain-in-my-issued-secrets-cacrt
+  includePublicCas: false
 
 # -- additional volumes to mount to ziti-controller container
 additionalVolumes: []
